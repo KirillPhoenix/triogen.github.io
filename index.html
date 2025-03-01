@@ -1,0 +1,130 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v6.5.2/css/all.css", rel="stylesheet"> <!-- Если иконки не работают проверить актуальность версии -->
+    <link rel="stylesheet" href="styles.css">
+    <title>Triogen Electrika</title>
+</head>
+<body>
+    <header>
+        <div class="intro">
+            <div class="ava">
+                <img src="ava.png">
+            </div>
+            <div class="text">
+                <h1>Triogen</h1>
+                <p>Электрика – это не только про свет, но и про безопасность!</p>
+                <p>Не рискуйте своей жизнью и имуществом – доверьтесь профессионалу!</p>
+            </div>
+        </div>
+    </header>
+    <section>
+        
+        <h2>Услуги</h2>
+        
+        <div class="service" onclick="toggleAnswer(this)">
+            Установка и замена розеток, выключателей
+        </div>
+        <div class="categories">
+            <ul class="custom-list">
+                <li><i class="fa-solid fa-bolt"></i></i> Монтаж новых розеток и выключателей в квартирах, домах и офисах.</li>
+                <li><i class="fa-solid fa-bolt"></i></i> Замена старых или неисправных розеток и выключателей.</li>
+                <li><i class="fa-solid fa-bolt"></i></i> Установка розеток с повышенной защитой (влагостойкие, с заземлением).</li>
+                <li><i class="fa-solid fa-bolt"></i></i> Перенос розеток и выключателей на новое место.</li>
+            </ul>
+        </div>
+    
+        <div class="service" onclick="toggleAnswer(this)">
+            Монтаж и ремонт электропроводки
+        </div>
+        <div class="categories">
+            <ul class="custom-list">
+                <li><i class="fa-solid fa-bolt"></i> Прокладка кабелей в квартирах, частных домах и коммерческих помещениях.</li>
+                <li><i class="fa-solid fa-bolt"></i> Устранение неисправностей в электропроводке.</li>
+                <li><i class="fa-solid fa-bolt"></i> Установка дополнительных линий для мощных приборов.</li>
+                <li><i class="fa-solid fa-bolt"></i> Перенос розеток и выключателей на новое место.</li>
+            </ul>
+        </div>
+    
+        <div class="service" onclick="toggleAnswer(this)">
+            Подключение бытовой техники
+        </div>
+        <div class="categories">
+            <ul class="custom-list">
+                <li><i class="fa-solid fa-bolt"></i> Подключение стиральных машин, посудомоечных машин, духовых шкафов и варочных панелей.</li>
+                <li><i class="fa-solid fa-bolt"></i> Установка и подключение водонагревателей, кондиционеров и других приборов.</li>
+                <li><i class="fa-solid fa-bolt"></i> Организация отдельной линии для мощной техники.</li>
+            </ul>
+        </div>
+        
+        <div class="service" onclick="toggleAnswer(this)">
+            Установка светильников, люстр, бра
+        </div>
+        <div class="categories">
+            <ul class="custom-list">
+                <li><i class="fa-solid fa-bolt"></i> Монтаж и подключение люстр, светильников, бра и точечных светильников.</li>
+                <li><i class="fa-solid fa-bolt"></i> Замена старых осветительных приборов на новые.</li>
+                <li><i class="fa-solid fa-bolt"></i> Установка декоративной подсветки и светодиодных лент.</li>
+                <li><i class="fa-solid fa-bolt"></i> Настройка и подключение умного освещения.</li>
+            </ul>
+        </div>
+        
+        <div class="service" onclick="toggleAnswer(this)">
+            Поиск и устранение неисправностей
+        </div>
+        <div class="categories">
+            <ul class="custom-list">
+                <li><i class="fa-solid fa-bolt"></i> Устранение коротких замыканий, обрывов и других проблем.</li>
+                <li><i class="fa-solid fa-bolt"></i> Ремонт розеток, выключателей и распределительных коробок.</li>
+                <li><i class="fa-solid fa-bolt"></i> Восстановление питания после срабатывания автоматических выключателей.</li>
+            </ul>
+        </div>
+
+        <div class="service" onclick="toggleAnswer(this)">
+            Консультация и расчёт электропроектов
+        </div>
+        <div class="categories">
+            <ul class="custom-list">
+                <li><i class="fa-solid fa-bolt"></i> Консультация и расчёт электропроектов.</li>
+                <li><i class="fa-solid fa-bolt"></i> Консультации по вопросам электромонтажа и безопасности.</li>
+                <li><i class="fa-solid fa-bolt"></i> Расчёт мощности и нагрузки для электропроводки.</li>
+                <li><i class="fa-solid fa-bolt"></i> Помощь в планировании расположения розеток, выключателей и осветительных приборов.</li>
+                <li><i class="fa-solid fa-bolt"></i> Разработка индивидуальных решений для сложных проектов.</li>
+            </ul>
+        </div>
+
+        <script src="script.js"></script>
+
+    </section>
+
+    <footer>
+        <p>Контактная информация ©2025</p>
+        <div class="icon-container">
+            <a href="https://t.me/triogen_elektrika">
+                <i class="fa-brands fa-telegram fa-3x" style="color: #ffffff;"></i>
+            </a>
+            <a href="https://vk.com/samrusbiz">
+                <i class="fa-brands fa-vk fa-3x" style="color: #ffffff;"></i>
+            </a>
+            <div class="copy-link" onclick="copyToClipboard('triogen@mail.ru')">
+                <i class="fa-solid fa-at fa-3x"></i>
+            </div>
+        </div>
+        <i class="fa-solid fa-phone"> +7 (927) 732-78-20</i>
+        <script>
+            function copyToClipboard(text) {
+
+                const tempInput = document.createElement('input');
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy'); 
+                document.body.removeChild(tempInput); 
+    
+                alert('Текст скопирован в буфер обмена: ' + text);
+            }
+        </script>
+    </footer>
+</body>
+</html>

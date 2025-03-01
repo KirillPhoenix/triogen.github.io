@@ -1,0 +1,111 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex; /* Включает Flexbox */
+            flex-direction: column; /* Делаем колонкой, если нужно сделать так, чтобы верх был центром содержимого */
+            align-items: center; /* Центрирует содержимое по горизонтали */
+            justify-content: center; /* Центрирует содержимое по вертикали */
+            background-image: url('backround.png'); 
+            color:#ffffff;
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            height: 40vh;
+            padding: 20px;
+        }
+
+            .intro {
+                display: flex; /* Используем Flexbox для расположения .ava и .text в один ряд */
+                align-items: center; /* Центрируем их вертикально */
+                justify-content: left; /* Если нужно, чтобы они были по центру в пределах intro */
+                margin-left: 240px;
+                width: 100%; /* Занимает всю ширину родителя */
+            }
+
+            .intro .text {
+                margin-left: 20px; /* Отступ слева для текста */
+            }
+
+            .intro .ava img {
+                width: 200px; /* Ширина изображения */
+            }
+
+        section {
+            padding: 20px;
+            background-color: #e1f5fe; /*#e1f5fe #e0e0e0 #f5f5dc #e8f5e9*/
+        }
+
+            .service {
+                background-color: #f9f9f9;
+                padding: 15px;
+                cursor: pointer;
+                border: 1px solid #ddd;
+                border-radius: 5px; /* Скругляем углы */
+                transition: background-color 0.3s ease; /* Плавный переход цвета */
+            }
+
+            .service:hover{
+                background-color: #e0e0e0; /* Изменение фона при наведении */
+            }
+
+            .categories {
+                display: none; 
+                padding: 10px;
+                border-left: 3px solid #007BFF;
+                background-color: #f1f1f1;
+                border-radius: 5px; /* Скругляем углы */
+                margin-top: 5px; /* Отступ сверху */
+            }
+
+            .custom-list {
+                list-style-type: none; /* Убираем стандартные маркеры */
+                padding-left: 0; /* Убираем отступ слева для списков */
+            }
+            
+                .custom-list li {
+                    display: flex; /* Используем Flexbox для выравнивания иконки и текста */
+                    align-items: center; /* Центрируем иконку и текст по вертикали */
+                    padding: 10px 5px; /* Отступы для лучшего восприятия */
+                    border-bottom: 1px solid #ddd; /* Легкая линия между пунктами */
+                }
+                
+                .custom-list li:last-child {
+                    border-bottom: none; /* Убираем линию у последнего элемента */
+                }
+
+                .custom-list li:hover {
+                    background-color: #e0f7fa; /* Цвет фона при наведении */
+                }
+
+                    .custom-list li i {
+                        color: #e6e617;
+                        margin-right: 10px; /* Отступ между иконкой и текстом */
+                        transition: color 0.3s ease; /* Плавный переход для цвета иконки */
+                    }
+                    
+                    .custom-list li:hover i {
+                        transform: scale(1.3);
+                    }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #040133;
+            color: white;
+        }
+        .icon-container {
+            display: flex; /* Используем Flexbox для расположения в строку */
+            align-items: center; /* Выравнивание элементов по центру по вертикали */
+            justify-content: center;
+        }
+
+        .icon-container a,
+        .icon-container .copy-link {
+            margin-right: 15px; /* Добавьте отступ между иконками */
+            margin-bottom: 15px;
+        }
