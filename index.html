@@ -1,28 +1,42 @@
 <html lang="ru">
+
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link href="https://use.fontawesome.com/releases/v6.5.2/css/all.css", rel="stylesheet"> <!-- Если иконки не работают проверить актуальность версии -->
+    
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
     <title>Triogen Electrika</title>
+
 </head>
+
 <body>
     
     <header>
         <div class="intro">
-            <div class="ava">
-                <img src="ava.png">
-            </div>
             <div class="text">
                 <h1>Triogen</h1>
                 <p>Электрика – это не только про свет, но и про безопасность!</p>
                 <p>Не рискуйте своей жизнью и имуществом – доверьтесь профессионалу!</p>
             </div>
+            <div class="ava">
+                <img src="ava.png">
+            </div>
         </div>
     </header>
     
     <section>
+        
         <h2>Услуги</h2>
+        
         <div class="service-container">
             <!-- Услуга 1 -->
             <div class="service-card">
@@ -131,10 +145,38 @@
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-        <!-- Подключаем наш JavaScript -->
-        <script src="script.js"></script>
+
+        <h2>Отзывы</h2>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="review">
+                        <img src="media/reviews/review_1.png">
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="review">
+                        <img src="media/reviews/review_2.png">
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="review">
+                        <img src="media/reviews/review_3.png">
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="review">
+                        <img src="media/reviews/review_4.png">
+                    </div>
+                </div>
+            <!-- Кнопки управления 
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>-->
+        </div>
     </section>
 
     <footer>
