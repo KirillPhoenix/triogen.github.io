@@ -1,11 +1,16 @@
-function toggleAnswer(questionElement) {
-    // Находим следующий элемент после вопроса
-    const answerElement = questionElement.nextElementSibling;
-    
-    // Проверяем, что ответ скрыт, и переключаем его видимость
-    if (answerElement.style.display === "none" || answerElement.style.display === "") {
-        answerElement.style.display = "block"; // Показать ответ
+// Добавим анимацию при прокрутке
+function toggleService(id) {
+    const content = document.getElementById(`service-${id}`);
+    const header = content.previousElementSibling;
+    const arrow = header.querySelector('.arrow');
+
+    if (content.style.display === "block") {
+        content.style.display = "none";
+        header.classList.remove('active');
+        arrow.textContent = "▼";
     } else {
-        answerElement.style.display = "none"; // Скрыть ответ
+        content.style.display = "block";
+        header.classList.add('active');
+        arrow.textContent = "▲";
     }
 }

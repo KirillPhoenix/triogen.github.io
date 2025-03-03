@@ -7,6 +7,7 @@
     <title>Triogen Electrika</title>
 </head>
 <body>
+    
     <header>
         <div class="intro">
             <div class="ava">
@@ -19,83 +20,121 @@
             </div>
         </div>
     </header>
+    
     <section>
-        
         <h2>Услуги</h2>
-        
-        <div class="service" onclick="toggleAnswer(this)">
-            Установка и замена розеток, выключателей
-        </div>
-        <div class="categories">
-            <ul class="custom-list">
-                <li><i class="fa-solid fa-bolt"></i></i> Монтаж новых розеток и выключателей в квартирах, домах и офисах.</li>
-                <li><i class="fa-solid fa-bolt"></i></i> Замена старых или неисправных розеток и выключателей.</li>
-                <li><i class="fa-solid fa-bolt"></i></i> Установка розеток с повышенной защитой (влагостойкие, с заземлением).</li>
-                <li><i class="fa-solid fa-bolt"></i></i> Перенос розеток и выключателей на новое место.</li>
-            </ul>
-        </div>
+        <div class="service-container">
+            <!-- Услуга 1 -->
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(1)">
+                    <div class="service-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Установка и замена розеток, выключателей</h3>
+                </div>
+                <div class="service-content" id="service-1">
+                    <ul class="custom-list">
+                        <li><i class="fa-solid fa-bolt"></i> Монтаж новых розеток и выключателей в квартирах, домах и офисах.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Замена старых или неисправных розеток и выключателей.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Установка розеток с повышенной защитой (влагостойкие, с заземлением).</li>
+                        <li><i class="fa-solid fa-bolt"></i> Перенос розеток и выключателей на новое место.</li>
+                    </ul>
+                </div>
+            </div>
     
-        <div class="service" onclick="toggleAnswer(this)">
-            Монтаж и ремонт электропроводки
-        </div>
-        <div class="categories">
-            <ul class="custom-list">
-                <li><i class="fa-solid fa-bolt"></i> Прокладка кабелей в квартирах, частных домах и коммерческих помещениях.</li>
-                <li><i class="fa-solid fa-bolt"></i> Устранение неисправностей в электропроводке.</li>
-                <li><i class="fa-solid fa-bolt"></i> Установка дополнительных линий для мощных приборов.</li>
-                <li><i class="fa-solid fa-bolt"></i> Перенос розеток и выключателей на новое место.</li>
-            </ul>
-        </div>
+            <!-- Услуга 2 -->
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(2)">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Монтаж и ремонт электропроводки</h3>
+                </div>
+                <div class="service-content" id="service-2">
+                    <ul class="custom-list">
+                        <li><i class="fa-solid fa-bolt"></i> Прокладка кабелей в квартирах, частных домах и коммерческих помещениях.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Устранение неисправностей в электропроводке.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Установка дополнительных линий для мощных приборов.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Перенос розеток и выключателей на новое место.</li>
+                    </ul>
+                </div>
+            </div>
     
-        <div class="service" onclick="toggleAnswer(this)">
-            Подключение бытовой техники
+            <!-- Услуга 3 -->
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(3)">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Подключение бытовой техники</h3>
+                </div>
+                <div class="service-content" id="service-3">
+                    <ul class="custom-list">
+                        <li><i class="fa-solid fa-bolt"></i> Подключение стиральных машин, посудомоечных машин, духовых шкафов и варочных панелей.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Установка и подключение водонагревателей, кондиционеров и других приборов.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Организация отдельной линии для мощной техники.</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Услуга 4 -->
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(4)">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Установка светильников, люстр, бра</h3>
+                </div>
+                <div class="service-content" id="service-4">
+                    <ul class="custom-list">
+                        <li><i class="fa-solid fa-bolt"></i> Монтаж и подключение люстр, светильников, бра и точечных светильников.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Замена старых осветительных приборов на новые.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Установка декоративной подсветки и светодиодных лент.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Настройка и подключение умного освещения.</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Услуга 5 -->
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(5)">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Поиск и устранение неисправностей</h3>
+                </div>
+                <div class="service-content" id="service-5">
+                    <ul class="custom-list">
+                        <li><i class="fa-solid fa-bolt"></i> Устранение коротких замыканий, обрывов и других проблем.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Ремонт розеток, выключателей и распределительных коробок.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Восстановление питания после срабатывания автоматических выключателей.</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Услуга 6 -->
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(6)">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Консультация и расчёт электропроектов</h3>
+                </div>
+                <div class="service-content" id="service-6">
+                    <ul class="custom-list">
+                        <li><i class="fa-solid fa-bolt"></i> Консультация и расчёт электропроектов.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Консультации по вопросам электромонтажа и безопасности.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Расчёт мощности и нагрузки для электропроводки.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Помощь в планировании расположения розеток, выключателей и осветительных приборов.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Разработка индивидуальных решений для сложных проектов.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="categories">
-            <ul class="custom-list">
-                <li><i class="fa-solid fa-bolt"></i> Подключение стиральных машин, посудомоечных машин, духовых шкафов и варочных панелей.</li>
-                <li><i class="fa-solid fa-bolt"></i> Установка и подключение водонагревателей, кондиционеров и других приборов.</li>
-                <li><i class="fa-solid fa-bolt"></i> Организация отдельной линии для мощной техники.</li>
-            </ul>
-        </div>
-        
-        <div class="service" onclick="toggleAnswer(this)">
-            Установка светильников, люстр, бра
-        </div>
-        <div class="categories">
-            <ul class="custom-list">
-                <li><i class="fa-solid fa-bolt"></i> Монтаж и подключение люстр, светильников, бра и точечных светильников.</li>
-                <li><i class="fa-solid fa-bolt"></i> Замена старых осветительных приборов на новые.</li>
-                <li><i class="fa-solid fa-bolt"></i> Установка декоративной подсветки и светодиодных лент.</li>
-                <li><i class="fa-solid fa-bolt"></i> Настройка и подключение умного освещения.</li>
-            </ul>
-        </div>
-        
-        <div class="service" onclick="toggleAnswer(this)">
-            Поиск и устранение неисправностей
-        </div>
-        <div class="categories">
-            <ul class="custom-list">
-                <li><i class="fa-solid fa-bolt"></i> Устранение коротких замыканий, обрывов и других проблем.</li>
-                <li><i class="fa-solid fa-bolt"></i> Ремонт розеток, выключателей и распределительных коробок.</li>
-                <li><i class="fa-solid fa-bolt"></i> Восстановление питания после срабатывания автоматических выключателей.</li>
-            </ul>
-        </div>
-
-        <div class="service" onclick="toggleAnswer(this)">
-            Консультация и расчёт электропроектов
-        </div>
-        <div class="categories">
-            <ul class="custom-list">
-                <li><i class="fa-solid fa-bolt"></i> Консультация и расчёт электропроектов.</li>
-                <li><i class="fa-solid fa-bolt"></i> Консультации по вопросам электромонтажа и безопасности.</li>
-                <li><i class="fa-solid fa-bolt"></i> Расчёт мощности и нагрузки для электропроводки.</li>
-                <li><i class="fa-solid fa-bolt"></i> Помощь в планировании расположения розеток, выключателей и осветительных приборов.</li>
-                <li><i class="fa-solid fa-bolt"></i> Разработка индивидуальных решений для сложных проектов.</li>
-            </ul>
-        </div>
-
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+        <!-- Подключаем наш JavaScript -->
         <script src="script.js"></script>
-
     </section>
 
     <footer>
