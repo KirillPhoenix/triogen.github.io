@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const swiper = new Swiper('.swiper-container', {
         loop: true,
-        slidesPerView: 3,
+        slidesPerView: 1,
         centeredSlides: true,
         spaceBetween: 30,
         navigation: {

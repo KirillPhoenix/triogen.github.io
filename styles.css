@@ -163,7 +163,7 @@
             
             .swiper-container {
                 width: 100%;
-                max-width: 1200px;
+                max-width: 700px;
                 margin: 0 auto;
                 padding: 20px 0;
                 height: 300px;
@@ -184,7 +184,7 @@
                 transition: transform 0.5s ease, opacity 0.5s ease;
                 opacity: 0.7;
                 transform: scale(0.8); /* Боковые слайды меньше */
-                height: 100%;
+                height: 100%; /* Не влияет на высоту т.к swiper её переопределяет */
                 display: flex;
                 align-items: center;
                 justify-content: center;
