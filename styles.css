@@ -176,19 +176,22 @@
             }
             
             .swiper-slide {
-                background: #fff;
-                border-radius: 15px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-                padding: 20px;
-                text-align: center;
-                transition: transform 0.5s ease, opacity 0.5s ease;
-                opacity: 0.7;
-                transform: scale(0.8); /* Боковые слайды меньше */
-                height: 100%; /* Не влияет на высоту т.к swiper её переопределяет */
-                display: flex;
+                display: inline-flex; /* Слайд будет подстраиваться под размер содержимого */
                 align-items: center;
                 justify-content: center;
+                background: transparent; /* Прозрачный фон */
+                border-radius: 15px; /* Скругление углов */
                 box-sizing: border-box;
+            }
+            
+            .review-image {
+                max-width: 100%; /* Ограничиваем ширину изображения */
+                max-height: 100%; /* Ограничиваем высоту изображения */
+                object-fit: contain; /* Сохраняем пропорции изображения */
+                width: auto !important; /* Автоматическая ширина */
+                height: auto !important; /* Автоматическая высота */
+                border-radius: 15px; /* Скругление углов для изображения */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для изображения */
             }
             
             .swiper-slide-active {
@@ -230,7 +233,7 @@
                 top: 50%;
                 transform: translateY(-50%);
                 z-index: 10;
-            }
+            } /*Пока без кнопок перемотки*/
             .swiper-slide .review img{
                 width: calc(100% - 20px);
                 height: 100%;

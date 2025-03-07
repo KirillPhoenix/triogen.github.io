@@ -21,39 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 1,
         centeredSlides: true,
         spaceBetween: 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        on: {
-            init: function () {
-                console.log('Swiper initialized');
-            },
-            progress: function () {
-                const slides = this.slides;
-                const progress = this.progress;
-
-                slides.forEach((slide) => {
-                    const slideProgress = slide.progress;
-
-                    // Плавное изменение масштаба и прозрачности
-                    let scale = 1 - Math.abs(slideProgress) * 0.2; // Уменьшаем масштаб боковых слайдов
-                    let opacity = 1 - Math.abs(slideProgress) * 0.3; // Уменьшаем прозрачность боковых слайдов
-
-                    // Ограничиваем минимальные значения
-                    scale = Math.max(scale, 0.8); // Минимальный масштаб для боковых слайдов
-                    opacity = Math.max(opacity, 0.7); // Минимальная прозрачность для боковых слайдов
-
-                    slide.style.opacity = opacity;
-                    slide.style.transform = `scale(${scale})`;
-                });
-            },
-            setTransition: function (transition) {
-                const slides = this.slides;
-                slides.forEach((slide) => {
-                    slide.style.transition = `${transition}ms`;
-                });
-            },
-        },
+        direction: 'vertical',
+        speed: 1500,
+        autoplay: {
+            delay: 3000, // Автопрокрутка каждые 3 секунды
+            disableOnInteraction: false,
+        }
     });
 });
