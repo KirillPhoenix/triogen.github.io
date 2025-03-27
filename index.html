@@ -21,6 +21,7 @@
 <body>
     
     <header>
+        <canvas id="magneticCanvas"></canvas>
         <div class="intro">
             <div class="text">
                 <h1>Triogen</h1>
@@ -28,12 +29,26 @@
                 <p>Не рискуйте своей жизнью и имуществом – доверьтесь профессионалу!</p>
             </div>
             <div class="ava">
-                <img src="ava.png">
+                <img src="media/header/avatar.png">
             </div>
         </div>
     </header>
+
+    <section class="section-about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="media/about/electrician.jpg" alt="Электрик">
+                <div class="image-overlay"></div>
+            </div>
+            <div class="about-text">
+                <h2>Обо мне</h2>
+                <p>Я — профессиональный электрик с опытом работы более 5 лет...</p>
+                <p>Моя миссия — обеспечивать безопасность и комфорт...</p>
+            </div>
+        </div>
+    </section>
     
-    <section>
+    <section class="section-services">
         
         <h2>Услуги</h2>
         
@@ -146,6 +161,68 @@
             </div>
         </div>
 
+    </section>
+
+    <section class="section-portfolio">
+        <h2>Мои работы</h2>
+        <div class="portfolio-gallery">
+          <div class="portfolio-item">
+            <img src="media/portfolio/portfolio-1.jpg" alt="Ремонт проводки в квартире">
+            <div class="portfolio-overlay">
+              <h3>Квартира на Ленина, 15</h3>
+              <p>Полная замена проводки с монтажом 25 розеток</p>
+            </div>
+          </div>
+          
+          <div class="portfolio-item">
+            <img src="media/portfolio/portfolio-2.jpg" alt="Установка люстры">
+            <div class="portfolio-overlay">
+              <h3>Офис на Гагарина, 42</h3>
+              <p>Монтаж системы освещения (24 светильника)</p>
+            </div>
+          </div>
+          
+          <div class="portfolio-item">
+            <img src="media/portfolio/portfolio-3.jpg" alt="Электрощит">
+            <div class="portfolio-overlay">
+              <h3>Частный дом в Green Village</h3>
+              <p>Сборка и установка электрощита на 36 модулей</p>
+            </div>
+          </div>
+        </div>
+        <button class="btn-more">Показать все проекты</button>
+      </section>
+    <section class="section-benefits">
+        <h2>Почему клиенты выбирают меня</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Гарантия безопасности</h3>
+            <p>Все работы выполняются строго по ГОСТ и ПУЭ. Использую только сертифицированные материалы</p>
+          </div>
+          
+          <div class="benefit-card">
+            <i class="fas fa-clock"></i>
+            <h3>Работаю без задержек</h3>
+            <p>98% объектов сдаю в оговоренный срок. Выезд в день обращения при аварийных ситуациях</p>
+          </div>
+          
+          <div class="benefit-card">
+            <i class="fas fa-ruble-sign"></i>
+            <h3>Прозрачная цена</h3>
+            <p>Фиксированная смета без скрытых платежей. Подберу решение под ваш бюджет</p>
+          </div>
+          
+          <div class="benefit-card">
+            <i class="fas fa-medal"></i>
+            <h3>Опыт 5+ лет</h3>
+            <p>Более 1000 успешных проектов: от квартир до коммерческих объектов</p>
+          </div>
+        </div>
+      </section>
+    
+    <section class="section-reviews">
+        
         <h2>Отзывы</h2>
 
         <div class="swiper-container">
@@ -173,9 +250,39 @@
                         <img src="media/reviews/review_4.png" class="review-image">
                     </div>
                 </div>
+
+                <div class="swiper-slide">
+                    <div class="review">
+                        <img src="media/reviews/review_5.png" class="review-image">
+                    </div>
+                </div>
+
             <!-- Кнопки управления 
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>-->
+        </div>
+        
+    </section>
+
+    <section class="section-stats">
+        <h2>Мы в цифрах</h2>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 100%;"></div>
+                </div>
+                <p>20+ лет опыта и продолжаем расти!</p>
+            </div>
+            <div class="stat-item">
+                <div class="circle-chart" data-percent="100">
+                    <span>1000+</span>
+                </div>
+                <p>успешных заказов</p>
+            </div>
+            <div class="stat-item">
+                <div class="icon">📅</div>
+                <p>Работаем с 2004 года</p>
+            </div>
         </div>
     </section>
 
