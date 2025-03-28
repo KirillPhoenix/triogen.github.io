@@ -42,15 +42,15 @@
             </div>
             <div class="about-text">
                 <h2>Обо мне</h2>
-                <p>Я — профессиональный электрик с опытом работы более 5 лет...</p>
-                <p>Моя миссия — обеспечивать безопасность и комфорт...</p>
+                <p>Я — профессиональный электрик с опытом работы более 20 лет.</p>
+                <p>Моя миссия — обеспечивать безопасность и комфорт.</p>
             </div>
         </div>
     </section>
     
     <section class="section-services">
         
-        <h2>Услуги</h2>
+        <h2>Основные направления работ</h2>
         
         <div class="service-container">
             <!-- Услуга 1 -->
@@ -192,38 +192,42 @@
         </div>
         <button class="btn-more">Показать все проекты</button>
       </section>
-    <section class="section-benefits">
+      <section class="section-benefits">
         <h2>Почему клиенты выбирают меня</h2>
         <div class="benefits-grid">
+          <!-- Карточка 1 (фото) -->
           <div class="benefit-card">
-            <i class="fas fa-shield-alt"></i>
+            <div class="benefit-img" style="background-image: url('media/benefits/tools.jpg');"></div>
             <h3>Гарантия безопасности</h3>
-            <p>Все работы выполняются строго по ГОСТ и ПУЭ. Использую только сертифицированные материалы</p>
+            <p>Сертифицированные материалы, соответствие ГОСТ</p>
           </div>
-          
+      
+          <!-- Карточка 2 (графика) -->
           <div class="benefit-card">
-            <i class="fas fa-clock"></i>
+            <div class="benefit-img" style="background-image: url('media/benefits/time.jpg');"></div>
             <h3>Работаю без задержек</h3>
-            <p>98% объектов сдаю в оговоренный срок. Выезд в день обращения при аварийных ситуациях</p>
+            <p>Точно в срок. Возможен выезд в день обращения</p>
           </div>
-          
+      
+          <!-- Карточка 3 (графика) -->
           <div class="benefit-card">
-            <i class="fas fa-ruble-sign"></i>
+            <div class="benefit-img" style="background-image: url('media/benefits/calc.jpg');"></div>
             <h3>Прозрачная цена</h3>
-            <p>Фиксированная смета без скрытых платежей. Подберу решение под ваш бюджет</p>
+            <p>Никаких скрытых платежей</p>
           </div>
-          
+      
+          <!-- Карточка 4 (фото/число) -->
           <div class="benefit-card">
-            <i class="fas fa-medal"></i>
-            <h3>Опыт 5+ лет</h3>
-            <p>Более 1000 успешных проектов: от квартир до коммерческих объектов</p>
+            <div class="benefit-img" style="background-image: url('media/benefits/expirience.jpg');"></div>
+            <h3>20 лет опыта</h3>
+            <p>Знаю все нюансы электромонтажа</p>
           </div>
         </div>
       </section>
     
     <section class="section-reviews">
         
-        <h2>Отзывы</h2>
+        <h2 itemprop="name">Отзывы клиентов</h2>
 
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -256,36 +260,50 @@
                         <img src="media/reviews/review_5.png" class="review-image">
                     </div>
                 </div>
+            </div>
+        </div>
 
-            <!-- Кнопки управления 
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>-->
+        <div class="review-sources">
+            <p>Читайте больше отзывов на:</p>
+            <div class="sources-links">
+                <a href="https://www.avito.ru/samara/predlozheniya_uslug/uslugi_nadezhnogo_elektrika_4490712016?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjE7czoxOiJ4IjtzOjE2OiJvaFpsQllQaDhEZDRIcmxoIjt9uln6_j8AAAA#open-reviews-list" target="_blank" rel="noopener">
+                    <img src="media/reviews/logo-avito.svg" alt="Flamp">
+                </a>
+                <a href="https://dzen.ru/stk" target="_blank" rel="noopener">
+                    <img src="media/reviews/logo-dzen.svg" alt="Яндекс Карты">
+                </a>
+            </div>
         </div>
         
+        <div class="modal-review">
+            <div class="modal-content">
+              <span class="close-modal">&times;</span>
+              <img src="" alt="Увеличенный отзыв" id="modal-review-image">
+            </div>
+        </div>
+
     </section>
 
     <section class="section-stats">
         <h2>Мы в цифрах</h2>
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="progress-bar">
-                    <div class="progress" style="width: 100%;"></div>
-                </div>
-                <p>20+ лет опыта и продолжаем расти!</p>
+        <div class="stats-row">
+            <div class="stat-box">
+                <div class="stat-number" data-target="20">0</div>
+                <div class="stat-label">лет опыта</div>
             </div>
-            <div class="stat-item">
-                <div class="circle-chart" data-percent="100">
-                    <span>1000+</span>
-                </div>
-                <p>успешных заказов</p>
+            
+            <div class="stat-box">
+                <div class="stat-number" data-target="1000">0</div>
+                <div class="stat-label">успешных заказов</div>
             </div>
-            <div class="stat-item">
-                <div class="icon">📅</div>
-                <p>Работаем с 2004 года</p>
+            
+            <div class="stat-box">
+                <div class="stat-number" data-target="2004">0</div>
+                <div class="stat-label">работаем с</div>
             </div>
         </div>
     </section>
-
+    
     <footer>
         <p>Контактная информация ©2025</p>
         <div class="icon-container">

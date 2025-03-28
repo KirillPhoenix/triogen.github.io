@@ -185,26 +185,71 @@ function animateServiceCards() {
 // 3. Анимация статистики (круговые диаграммы)
 // =============================================
 function animateStats() {
-    const statsSection = document.querySelector('.stats-section');
-    if (!statsSection) return;
+    function animateCounters() {
+        const counters = document.querySelectorAll('.stat-number');
+        
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const startValue = 0;
+            const duration = calculateDuration(target); // Динамический расчет длительности
+            
+            let startTime = null;
+            
+            const animate = (timestamp) => {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Плавное замедление в конце (ease-out)
+                const easedProgress = easeOutQuad(progress);
+                const value = Math.floor(startValue + (target - startValue) * easedProgress);
+                
+                counter.textContent = value;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    counter.textContent = target; // Гарантируем точное конечное значение
+                }
+            };
+            
+            requestAnimationFrame(animate);
+        });
+    }
+    
+    // Функция для плавного замедления (ease-out)
+    function easeOutQuad(t) {
+        return t * (2 - t);
+    }
+    
+    // Динамический расчет длительности в зависимости от целевого значения
+    function calculateDuration(target) {
+        const baseDuration = 2000; // Базовая длительность для маленьких чисел
+        const additionalPerUnit = 1; // Дополнительное время на каждую единицу
+        
+        // Минимальная и максимальная длительность
+        return Math.min(
+            Math.max(
+                baseDuration + target * additionalPerUnit,
+                3000 // Минимальная длительность
+            ),
+            5000 // Максимальная длительность
+        );
+    }
 
-    const circleCharts = document.querySelectorAll('.circle-chart');
-    circleCharts.forEach(chart => {
-        chart.style.opacity = '0';
-    });
-
-    const observer = new IntersectionObserver((entries) => {
+    const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                circleCharts.forEach(chart => {
-                    chart.style.opacity = '1';
-                    chart.classList.add('animated');
-                });
+                animateCounters();
+                statsObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
-
-    observer.observe(statsSection);
+    }, { threshold: 0.3 });
+    
+    const statsSection = document.querySelector('.section-stats');
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
 }
 
 // =============================================
@@ -227,9 +272,37 @@ function animateReviews(){
     })
 }
 
+function initReviewModal() {
+    const reviewImages = document.querySelectorAll('.review-image');
+    if (reviewImages.length === 0) return;
+
+    const modal = document.querySelector('.modal-review');
+    const modalImg = document.getElementById('modal-review-image');
+    const closeBtn = document.querySelector('.close-modal');
+
+    reviewImages.forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initHeaderParticles();    // Частицы в шапке
     animateServiceCards();    // Карточки услуг
     animateStats();           // Круговые диаграммы
     animateReviews();
+    initReviewModal();
 });
