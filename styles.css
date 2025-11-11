@@ -1,883 +1,798 @@
 /* ============================================= */
-/* Базовые стили (общие для всего сайта) */
+/* ⚡️ Triogen Electrika — неоновый редизайн 2025 */
 /* ============================================= */
+
+:root {
+  --bg-main: #0b0c10;
+  --bg-secondary: #12131a;
+  --text-main: #e0e0e0;
+  --accent1: #00ffe0;
+  --accent2: #5d5bff;
+  --accent3: #ff007a;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --border-light: rgba(255, 255, 255, 0.08);
+  --blur: blur(12px);
+  --radius: 16px;
+  --shadow-glow: 0 0 20px rgba(93, 91, 255, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  caret-color: transparent;
+  scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Общие стили для всех секций */
-[class^="section-"] {
-    padding: 40px 20px;
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(77, 255, 232, 0.1) 0%, transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(93, 91, 255, 0.1) 0%, transparent 30%),
-        linear-gradient(160deg, #f0f9ff 0%, #e1f5fe 100%);
-    position: relative;
-    z-index: 1;
-    margin: 0 auto;
-    
-    /* Элегантный разделитель */
-    border-top: 1px solid rgba(0, 123, 255, 0.08);
-    border-bottom: 1px solid rgba(0, 123, 255, 0.08);
-}
-
-/* Первая и последняя секция без границ */
-[class^="section-"]:first-child {
-    border-top: none;
-}
-
-[class^="section-"]:last-child {
-    border-bottom: none;
-}
-
-
-/* Эффект "плавающей" секции */
-@media (min-width: 768px) {
-    [class^="section-"] {
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-    
-    [class^="section-"]:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0, 123, 255, 0.1);
-    }
-}
-
-
-/* Заголовки секций (единый стиль) */
-[class^="section-"] h2 {
-    font-size: clamp(28px, 5vw, 62px);
-    margin-top: 0px;
-    color: rgb(63, 61, 188);
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    text-align: center;
-    backdrop-filter: blur(5px);
-    background: rgba(255,255,255,0.1);
-    padding: 10px 5px;
-    border-radius: 15px;
-    border: 1px solid rgba(255,255,255,0.2);
-    animation: fadeIn 1s ease-in-out forwards;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-}
-
-[class^="section-"] p {
-    font-size: 24px;
-}
-
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+  font-family: "Montserrat", sans-serif;
+  background: radial-gradient(circle at top left, #0b0c10 0%, #12131a 70%);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* ============================================= */
-/* Секция: Шапка (Header) */
+/* Header */
 /* ============================================= */
-/* Мобильная шапка */
+
 header {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: url('media/header/backround.png') center/cover no-repeat;
-    color: #ffffff;
-    height: 40vh;
-    max-height: 400px;
-    padding: 20px;
-    z-index: 0;
-    box-sizing: border-box;
-    font-size: clamp(16px, 4vw, 18px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  min-height: 400px;
+  background: linear-gradient(135deg, #090a10 0%, #13152a 100%);
+  overflow: hidden;
+  color: white;
 }
 
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 255, 224, 0.1), transparent 60%),
+              radial-gradient(circle at 80% 70%, rgba(93, 91, 255, 0.1), transparent 60%);
+  z-index: 0;
+}
 
-/* Адаптивный интро-блок */
 .intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  gap: 30px;
+}
+
+.intro .text {
+  text-align: center;
+}
+
+.intro .text h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(0, 255, 224, 0.4);
+  transition: all 0.3s ease;
+}
+
+.intro .text h1:hover {
+  text-shadow: 0 0 25px var(--accent1), 0 0 35px var(--accent2);
+  transform: scale(1.03);
+}
+
+.intro p {
+  font-size: 1.5rem;
+  color: #bbb;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
 
 .intro .ava img {
-    width: min(150px, 30vw);
-    height: auto;
-    border-radius: 50%;
-    transform: scaleX(-1); /* Горизонтальное отражение */
-    border: 3px solid rgba(255,255,255,0.3);
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 3px solid var(--accent2);
+  box-shadow: 0 0 25px var(--accent2);
 }
 
-.intro .text h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: clamp(1.8rem, 6vw, 2.5rem);
-    color: white;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    transition: all 0.4s ease; /* Добавляем плавный переход */
-}
-
-/* Эффект "лампочки" при наведении */
-.intro .text h1:hover {
-    color: #eeff00;
-    text-shadow: 
-        0 0 15px rgb(242, 255, 0),
-        0 0 20px rgb(255, 221, 29);
-    cursor: pointer;
-}
-
-/* Опционально: мерцание при появлении */
-@keyframes bulb-flicker {
-    0% { opacity: 0.8; text-shadow: none; }
-    50% { color: rgb(255, 251, 0); opacity: 1; text-shadow: 0 0 15px rgb(255, 251, 0); }
-    100% { opacity: 1; }
-}
-
-/* Если хотите анимацию при загрузке (однократно) */
-.intro .text h1 {
-    animation: bulb-flicker 1s ease-in-out 1;
-}
-
-/* Для очень маленьких экранов */
-
-@media (max-width: 480px) {
-    .intro .ava img {
-        width: 120px;
-    }
-    
-    header {
-        padding: 10px;
-        
-    }
-}
-
-/* Адаптация фона для мобильных */
-
-@media (max-width: 767px) {
-    header {
-        background-size: cover; /* Полное заполнение */
-        background-position: center 40%; /* Смещаем кадрирование */
-        height: 100vh; /* Чуть выше для мобилок */
-        min-height: 100vh;
-
-    }
-}
-
-/* Медиазапросы для планшетов/ПК */
-@media (min-width: 768px) {
-    header {
-        height: 40vh; /* Меньшая высота на десктопах */
-        min-height: auto;
-    }
-    
-    .intro {
-        flex-direction: row;
-        justify-content: flex-end;
-        margin-right: 120px;
-    }
-    
-    .intro .text {
-        text-align: right;
-        margin-right: 30px;
-
-    }
-    
-    .intro .ava img {
-        width: min(200px, 20vw);
-    }
-}
-
-/* Адаптация для широких экранов */
-@media (min-width: 992px) {
-    .intro {
-        flex-direction: row;
-        justify-content: flex-end;
-        text-align: right;
-        margin-right: 5%;
-    }
-    
-    .intro .text {
-        margin-right: 30px;
-    }
-}
-
-
+/* Canvas Particles */
 #magneticCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.7;
-    background: transparent !important;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.5;
 }
 
 /* ============================================= */
-/* Секция: Обо мне (section-about) */
+/* Общие секции */
 /* ============================================= */
+
+[class^="section-"] {
+  padding: 70px 20px;
+  position: relative;
+  background: linear-gradient(180deg, var(--bg-main), var(--bg-secondary));
+  border-top: 1px solid var(--border-light);
+}
+
+[class^="section-"] h2 {
+  text-align: center;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  margin-bottom: 40px;
+  color: var(--accent1);
+  text-shadow: 0 0 15px rgba(0, 255, 224, 0.5);
+}
+
+/* ============================================= */
+/* Section: About */
+/* ============================================= */
+
 .section-about {
-    padding: clamp(30px, 5vw, 60px) clamp(15px, 4vw, 20px); /* Адаптивные отступы */
+  padding: 80px 20px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ddd;
 }
 
-.about-container {
-    display: flex;
-    flex-direction: column; /* Мобильный-first */
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: clamp(20px, 4vw, 40px); /* Адаптивный gap */
+
+.section-about h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--accent1);
+  margin-bottom: 25px;
+  text-shadow: 0 0 20px rgba(0, 255, 224, 0.5);
 }
 
-.about-image {
-    position: relative;
-    width: 100%; /* Фикс для мобилок */
-    border-radius: 12px;
-    overflow: hidden;
-    aspect-ratio: 16/9; /* Сохраняем пропорции */
-    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
+.section-about p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #aaa;
 }
+
+.section-about strong {
+  color: var(--accent1);
+}
+
 
 .about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Кадрирование изображения */
-    display: block;
+  width: 70vw;
+  object-fit: cover;
+  filter: brightness(0.8);
+  transition: transform 0.5s;
 }
 
-.image-overlay {
-    /* Упрощенный оверлей */
-    background: linear-gradient(90deg, rgba(77, 255, 232, 0.08) 0%, transparent 70%);
-}
+/* .about-image:hover img {
+  transform: scale(1.05);
+} */
 
 .about-text {
-    width: 100%; /* Фикс для мобилок */
-    opacity: 0;
-    animation: fadeInRight 0.8s ease-out forwards;
-    animation-delay: 0.3s; /* Задержка для плавности */
+  font-size: 1.2rem;
+  max-width: 70vw;
+  margin: 0 auto;              /* <-- центрирует блок */
+  color: #ccc;
+  text-align: center;
 }
 
-/* Анимация с will-change для оптимизации */
-@keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-/* Десктопная версия */
 @media (min-width: 992px) {
-    .about-container {
-        flex-direction: row;
-        align-items: center;
-    }
-    
-    .about-image {
-        flex: 1;
-        aspect-ratio: 4/3; /* Другие пропорции для десктопа */
-    }
-    
-    .about-text {
-        flex: 1;
-    }
-}
-
-/* Оптимизация для планшетов */
-@media (min-width: 768px) and (max-width: 991px) {
-    .about-image {
-        aspect-ratio: 3/2;
-    }
+  .about-container {
+    flex-direction: row;
+    align-items: center;
+  }
+  .about-text {
+    flex: 1;
+    padding-left: 40px;
+  }
+  .about-image {
+    flex: 1;
+  }
 }
 
 /* ============================================= */
-/* Секция: Услуги (section-services) */
+/* Section: Services */
 /* ============================================= */
-.section-services {
-    padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 40px);
+
+/* ============================================= */
+/* 🛠 FIX: Центрирование карточек "Основные направления работ" */
+/* ============================================= */
+
+.section-services::before, 
+.section-benefits::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle at center, rgba(9, 120, 224, 0.882) 0%, transparent 50%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
 }
 
-.service-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Фиксировано 3 колонки */
-    gap: clamp(15px, 3vw, 30px);
-    max-width: 1300px;
-    margin: 0 auto;
+.section-services .service-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  justify-content: center;       /* <-- центрирует карточки по горизонтали */
+  align-content: start;
+  max-width: 1200px;             /* чтобы сетка не растягивалась на весь экран */
+  margin: 0 auto;
+  width: 100%;
 }
 
-/* Планшетная версия (2 колонки) */
-@media (max-width: 1024px) {
-    .service-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* Для чуть более плотной компоновки на широких экранах */
+@media (min-width: 1200px) {
+  .section-services .service-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* Мобильная версия (1 колонка) */
-@media (max-width: 600px) {
-    .service-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .service-card {
-        max-width: 400px;
-        margin: 0 auto;
-    }
+/* Для планшетов и телефонов */
+@media (max-width: 800px) {
+  .section-services .service-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 
 .service-card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    overflow: hidden;
-    opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards;
-    will-change: transform, box-shadow;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-@keyframes fadeInUp {
-    from { 
-        opacity: 0; 
-        transform: translateY(30px) scale(0.98); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0) scale(1); 
-    }
-}
-
-/* Анимационные задержки через CSS переменные */
-.service-card {
-    --delay: calc(var(--i) * 0.15s);
-    animation-delay: var(--delay);
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  backdrop-filter: var(--blur);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 0 20px rgba(93, 91, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 0 30px var(--accent2);
 }
 
 .service-header {
-    display: flex;
-    align-items: center;
-    padding: clamp(15px, 3vw, 20px);
-    background: linear-gradient(135deg, #007BFF 0%, #00BFFF 100%);
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.service-header:hover {
-    background: linear-gradient(135deg, #0069d9 0%, #0095eb 100%);
-}
-
-.service-header h3 {
-    margin: 0;
-    font-size: clamp(20px, 2vw, 24px);
-    font-weight: 600;
-}
-
-.service-icon {
-    font-size: clamp(20px, 3vw, 28px);
-    margin-right: 12px;
-    flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  background: linear-gradient(90deg, var(--accent2), var(--accent1));
+  color: #000;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .service-content {
-    padding: clamp(15px, 3vw, 20px);
-}
-
-.service-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  padding: 18px 24px;
+  color: #ccc;
 }
 
 .service-content li {
-    position: relative;
-    padding-left: 10px; /* Увеличил отступ для иконки */
-    margin-bottom: 12px;
-    font-size: clamp(18px, 2vw, 20px);
-    line-height: 1.5;
-    color: #444;
+  margin-bottom: 10px;
+  list-style: none;
 }
 
-/* Альтернатива если используете Font Awesome */
- .service-content li i.fa-bolt {
-    color: #e4ff14;
-    margin-right: 8px;
-    font-size: 18px;
-} 
-
-/* Адаптация для планшетов */
-@media (max-width: 900px) {
-    .service-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Адаптация для мобильных */
-@media (max-width: 600px) {
-    .service-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .service-card {
-        max-width: 400px;
-        margin: 0 auto;
-    }
+.service-content i {
+  color: var(--accent1);
+  margin-right: 8px;
 }
 
 /* ============================================= */
-/* Секция: Портфолио (section-portfolio) */
+/* Section: Portfolio */
+/* ============================================= */
+
+/* ============================================= */
+/* 🛠 FIX: Выравнивание карточек в "Мои работы" */
 /* ============================================= */
 .portfolio-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 30px auto;
-  }
-  
-  .portfolio-item {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    aspect-ratio: 4/3;
-  }
-  
-  .portfolio-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-  }
-  
-  .portfolio-overlay {
-    position: absolute;
-    bottom: -100%;
-    left: 0;
-    right: 0;
-    background: rgba(0, 123, 255, 0.9);
-    color: white;
-    padding: 20px;
-    transition: bottom 0.3s;
-  }
-  
-  .portfolio-item:hover .portfolio-overlay {
-    bottom: 0;
-  }
-  
-  .portfolio-item:hover img {
-    transform: scale(1.05);
-  }
-  
-  .btn-more {
-    display: block;
-    margin: 40px auto 0;
-    padding: 12px 30px;
-    background: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .btn-more:hover {
-    background: #0056b3;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.portfolio-item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(93, 91, 255, 0.1);
+  aspect-ratio: 4 / 3; /* одинаковое соотношение сторон у всех карточек */
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* обрезаем лишнее, но не деформируем */
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.75));
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-overlay h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: var(--accent1);
+  text-shadow: 0 0 10px var(--accent1);
+}
+
+.portfolio-overlay p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.btn-more {
+  display: block;
+  margin: 40px auto 0;
+  padding: 12px 36px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  color: #000;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 0 20px var(--accent1);
+}
+
+.btn-more:hover {
+  box-shadow: 0 0 35px var(--accent2);
+}
 
 /* ============================================= */
-/* Секция: Преимущества (section-benefits) */
+/* Section: Benefits */
 /* ============================================= */
-.section-benefits {
-    padding: 60px 20px;
-  }
-  
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 карточки в ряд */
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+  justify-items: stretch; /* растягивает карточки по ширине */
+  align-items: stretch;   /* растягивает карточки по высоте */
+}
+
+.benefit-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  backdrop-filter: var(--blur);
+  padding: 25px;
+  text-align: center;
+  border: 1px solid var(--border-light);
+  transition: all 0.3s;
+  display: flex;             /* карточка становится флексом */
+  flex-direction: column;    /* элементы внутри идут сверху вниз */
+  justify-content: space-between; /* равномерное распределение */
+}
+
+@media (max-width: 700px) {
   .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: 1fr; /* по одной карточке в ряд */
   }
-  
-  .benefit-card {
-    background: white;
-    padding: 30px 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(63, 61, 188, 0.08);
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    border: 1px solid rgba(63, 61, 188, 0.05);
-  }
-  
-  .benefit-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(63, 61, 188, 0.12);
-  }
-  
-  /* Графические элементы вместо иконок */
-  .benefit-graphic {
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Стили для часов (карточка "Без задержек") */
-  .clock {
-    width: 60px;
-    height: 60px;
-    border: 2px solid #3F3DBC;
-    border-radius: 50%;
-    position: relative;
-  }
-  
-  .clock::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 3px;
-    height: 25px;
-    background: #3F3DBC;
-    transform-origin: bottom;
-    transform: translate(-50%, -100%) rotate(0deg);
-    animation: rotate 8s linear infinite;
-  }
-  
-  /* Стили для стеклянного куба (карточка "Прозрачная цена") */
-  .glass-cube {
-    width: 60px;
-    height: 60px;
-    background: rgba(63, 61, 188, 0.08);
-    border: 1.5px solid #3F3DBC;
-    position: relative;
-  }
-  
-  .glass-cube::before {
-    content: "";
-    position: absolute;
-    top: -6px;
-    left: -6px;
-    width: 24px;
-    height: 24px;
-    border-top: 1.5px solid #3F3DBC;
-    border-left: 1.5px solid #3F3DBC;
-  }
-  
-  /* Стили для номера (карточка "Опыт 20+ лет") */
-  .benefit-number {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #3F3DBC;
-    line-height: 1;
-    margin-bottom: 10px;
-    background: linear-gradient(135deg, #3F3DBC 0%, #00BFFF 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  
-  /* Стили для фото (карточка "Гарантия безопасности") */
-  .benefit-img {
-    height: 180px;
-    border-radius: 15px;
-    margin: 0;
-    background-size: cover; /* Заполнит весь блок с обрезкой */
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  
-  /* Текстовая часть */
-  .benefit-card h3 {
-    color: #222;
-    font-size: clamp(24px, 4vw, 28px);
-    margin: 5px 0 12px 0;
-    font-weight: 600;
-  }
-  
-  .benefit-card p {
-    color: #555;
-    font-size: clamp(18px, 4vw, 20px);
-    line-height: 1.5;
-    margin: 0;
-  }
-  
-  /* Анимации */
-  @keyframes rotate {
-    to { transform: translate(-50%, -100%) rotate(360deg); }
-  }
-  
-  /* Адаптивность */
-  @media (max-width: 768px) {
-    .benefits-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-    
-    .benefit-card {
-      padding: 25px 20px;
-    }
-  }
+}
+
+.benefit-card h3 {
+  color: var(--accent2);
+  font-size: 1.4rem;
+}
+
+.benefit-card p {
+  font-size: 1.2rem;
+}
+
+
+.benefit-card:hover {
+  box-shadow: 0 0 25px var(--accent2);
+  transform: translateY(-5px);
+}
+
+.benefit-img {
+  height: 280px;
+  border-radius: var(--radius);
+  background-size: cover;
+  margin-bottom: 20px;
+}
 
 /* ============================================= */
-/* Секция: Отзывы (section-reviews) */
+/* Reviews + Stats + Footer */
 /* ============================================= */
+/* ============================================= */
+/* 🌀 Эффект глубины: центральный слайд увеличен, боковые уменьшены */
+/* ============================================= */
+
+.section-portfolio,
+.section-about,
 .section-reviews {
+  position: relative;
+  overflow: hidden;
+  min-height: 100px; /* не даём схлопнуться */
+  isolation: isolate; /* чтобы z-index не пересекался с другими секциями */
 }
 
-.swiper-container {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px 0;
-    height: 300px;
-    box-sizing: border-box;
-    overflow: hidden;
+.section-portfolio::before,
+.section-portfolio::after,
+.section-about::before,
+.section-about::after,
+.section-reviews::before,
+.section-reviews::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(to right, rgb(8, 8, 181) 0%, transparent 100%);
 }
 
-.swiper-wrapper {
-    display: flex;
+
+/* Левый край */
+.section-portfolio::before,
+.section-about::before,
+.section-reviews::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(8, 8, 181, 0.4) 0%, transparent 100%);
 }
 
-.swiper-slide {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border-radius: 15px;
-    box-sizing: border-box;
+/* Правый край (зеркальный) */
+.section-portfolio::after,
+.section-about::after,
+.section-reviews::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(8, 8, 181, 0.4) 0%, transparent 100%);
 }
 
-.review-image {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    width: auto !important;
-    height: auto !important;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.reviews-swiper {
+  perspective: 100px;
+  overflow: hidden; /* <-- не даём карточкам выходить за контейнер */
 }
 
-.swiper-slide-active {
-    opacity: 1;
-    transform: scale(1);
+.reviews-swiper .swiper-slide {
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-    background: #007BFF;
-    color: #fff;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
+/* Карточка-рамка */
+.review-card {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff; /* фон под скрин */
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  opacity: 0.9;
+  box-shadow:
+    0 0 25px rgba(0, 255, 224, 0.3),
+    inset 0 0 15px rgba(93, 91, 255, 0.25);
 }
 
-.swiper-button-next {
-    right: 10px;
+/* Неоновая рамка */
+.review-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  border: 3px solid rgba(0, 255, 224, 0.6);
+  box-shadow:
+    0 0 25px rgba(0, 255, 224, 0.5),
+    0 0 50px rgba(0, 255, 224, 0.3),
+    inset 0 0 20px rgba(93, 91, 255, 0.4);
+  pointer-events: none;
+  transition: all 0.4s ease;
 }
 
-.swiper-button-prev {
-    left: 10px;
+/* Изображение */
+.review-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* картинка полностью заполняет рамку */
+  border-radius: inherit;
+  transition: transform 0.4s ease;
+  z-index: 1;
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    font-size: 20px;
-    font-weight: bold;
+/* Центральный слайд */
+.reviews-swiper .swiper-slide-active .review-card {
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow:
+    0 0 40px rgba(0, 255, 224, 0.6),
+    inset 0 0 25px rgba(93, 91, 255, 0.4);
 }
 
-/*Ccылки на ресурсы с отзывами*/
-.review-sources {
-    text-align: center;
-    margin-top: 30px;
-    padding: 0 20px;
+.reviews-swiper .swiper-slide-active .review-card::after {
+  border: 3px solid rgba(0, 255, 224, 0.9);
+  box-shadow:
+    0 0 40px rgba(0, 255, 224, 0.8),
+    0 0 70px rgba(0, 255, 224, 0.4),
+    inset 0 0 25px rgba(93, 91, 255, 0.5);
 }
 
-.review-sources p {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+
+/* Боковые карточки */
+.reviews-swiper .swiper-slide-prev .review-card,
+.reviews-swiper .swiper-slide-next .review-card {
+  transform: scale(0.6) translateZ(-150px) rotateY(8deg);
+  opacity: 0.7;
 }
 
-.sources-links {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
+.reviews-swiper .swiper-slide-prev .review-card {
+  transform: scale(0.6) translateZ(-150px) rotateY(-8deg);
 }
 
-.sources-links a {
-    transition: transform 0.3s ease;
-    display: inline-block;
+.reviews-swiper .swiper-slide-active:hover .review-card {
+  transform: scale(1.2);
 }
 
-.sources-links a:hover {
-    transform: translateY(-3px);
-}
-
-.sources-links img {
-    height: 30px;
-    width: auto;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.sources-links a:hover img {
-    opacity: 1;
-}
-
-@media (max-width: 600px) {
-    .sources-links {
-        gap: 15px;
-    }
-    .sources-links img {
-        height: 25px;
-    }
-}
-/* Стили модального окна */
-.modal-review {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .reviews-swiper .swiper-slide-active .review-card {
+    transform: scale(1.2);
   }
-  
-  .modal-content {
-    position: relative;
-    margin: auto;
-    padding: 20px;
-    max-width: 90%;
-    height: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .reviews-swiper .swiper-slide-prev .review-card,
+  .reviews-swiper .swiper-slide-next .review-card {
+    transform: scale(0.8);
   }
-  
-  #modal-review-image {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-  }
-  
-  .close-modal {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-  }
-/* ============================================= */
-/* Секция: Мы в цифрах (section-stats) */
-/* ============================================= */
-.stats-row {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
+}
+
+
+
+.section-stats {
+  background: linear-gradient(180deg, #10111a, #0b0c10);
 }
 
 .stat-box {
-    flex: 1;
-    min-width: 150px;
-    text-align: center;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transform-style: preserve-3d;
-    transition: transform 0.3s;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 25px;
+  text-align: center;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 0 15px rgba(93, 91, 255, 0.1);
+  transition: 0.3s;
 }
 
 .stat-box:hover {
-    transform: translateY(-10px) rotateX(5deg);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px var(--accent1);
+  transform: translateY(-5px);
 }
 
 .stat-number {
-    display: block; /* или inline-block */
-    font-size: 4rem;
-    font-weight: 700;
-    color: #3F3DBC;
-    overflow: visible; /* Разрешаем показ */
-    position: relative;
+  font-size: 3rem;
+  color: var(--accent1);
+  text-shadow: 0 0 10px var(--accent1);
 }
 
-.stat-number::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: radial-gradient(circle, #3F3DBC 0%, transparent 70%);
-    margin: 10px 0;
-  }
-  
 .stat-label {
-    font-size: 1.1rem;
-    color: #060012;
-    opacity: 0.9;
+  color: #aaa;
+  font-size: 1.2rem;
 }
 
-@media (max-width: 768px) {
-    .stats-row {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .stat-box {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-/* ============================================= */
-/* Футер (Footer) */
-/* ============================================= */
 footer {
-    text-align: center;
-    padding: 30px;
-    background: #040133;
-    color: white;
+  background: #05060b;
+  text-align: center;
+  padding: 30px 10px;
+  border-top: 1px solid var(--border-light);
+  color: #bbb;
 }
 
-.icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
+footer p {
+  font-size: 1.2rem;
 }
 
-.icon-container a,
-.icon-container .copy-link {
-    margin: 0 15px;
-    transition: transform 0.3s;
+/* Контейнер с иконками */
+footer .icon-container {
+  display: flex;               /* ← выстраиваем в ряд */
+  justify-content: center;     /* ← по центру горизонтали */
+  align-items: center;         /* ← по вертикали */
+  gap: 25px;                   /* ← расстояние между иконками */
+  flex-wrap: wrap;             /* ← если мало места — перенос строк */
+  margin-top: 15px;
+  margin-bottom: 15px ;
 }
 
-.icon-container a:hover {
-    transform: scale(1.1);
+/* Сами иконки */
+footer .icon-container i {
+  font-size: 3.8rem;
+  cursor: pointer;
+  color: #bbb;
+  transition: all 0.3s ease;
+}
+
+footer .icon-container i:hover {
+  color: var(--accent1);
+  text-shadow: 0 0 15px var(--accent1);
+  transform: scale(1.1);
+}
+
+/* ============================================= */
+/* 📱 Адаптивный дизайн Triogen Electrika */
+/* ============================================= */
+
+/* ----------- Ноутбуки (до 1200px) ----------- */
+@media (max-width: 1200px) {
+  .intro .ava img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .intro p {
+    font-size: 1.2rem;
+  }
+
+  .service-card,
+  .benefit-card {
+    padding: 20px;
+  }
+
+  .portfolio-gallery {
+    gap: 20px;
+  }
+}
+
+/* ----------- Планшеты (до 992px) ----------- */
+@media (max-width: 992px) {
+  header {
+    height: 60vh;
+  }
+
+  .intro .text h1 {
+    font-size: 2.5rem;
+  }
+
+  .intro .ava img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .section-about {
+    padding: 60px 15px;
+  }
+
+  .about-image img {
+    width: 85vw;
+  }
+
+  .about-text {
+    max-width: 85vw;
+    font-size: 1.1rem;
+  }
+
+  .section-services .service-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+/* ----------- Смартфоны (до 768px) ----------- */
+@media (max-width: 768px) {
+  .intro {
+    gap: 20px;
+  }
+
+  .intro .ava img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .intro p {
+    font-size: 1rem;
+  }
+
+  .section-about p {
+    font-size: 1rem;
+  }
+
+  .section-services .service-container {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .portfolio-gallery {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .btn-more {
+    padding: 10px 28px;
+    font-size: 0.9rem;
+  }
+
+  footer p {
+    font-size: 1rem;
+  }
+
+  footer .icon-container i {
+    font-size: 2.8rem;
+  }
+}
+
+/* ----------- Маленькие телефоны (до 480px) ----------- */
+@media (max-width: 480px) {
+  header {
+    height: 50vh;
+  }
+
+  .intro .text h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  .intro .ava img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .section-about h2 {
+    font-size: 1.6rem;
+  }
+
+  .section-about p {
+    font-size: 0.95rem;
+  }
+
+  .section-services h2,
+  .section-benefits h2 {
+    font-size: 1.5rem;
+  }
+
+  .service-header {
+    font-size: 1rem;
+  }
+
+  .benefit-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .benefit-card p {
+    font-size: 0.95rem;
+  }
+
+  .btn-more {
+    font-size: 0.85rem;
+    padding: 8px 20px;
+  }
+
+  footer .icon-container i {
+    font-size: 2.4rem;
+  }
 }

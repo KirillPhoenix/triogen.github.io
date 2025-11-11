@@ -256,21 +256,82 @@ function animateStats() {
 // Инициализация всех анимаций
 // =============================================
 
-function animateReviews(){
-    // Инициализация Swiper
-    const swiper = new Swiper('.swiper-container', {
-        loop: true,
-        slidesPerView: 1,
-        centeredSlides: true,
-        spaceBetween: 30,
+function animateReviews() {
+  const container = document.querySelector('.reviews-swiper');
+  if (!container) return;
+    new Swiper('.reviews-swiper', {
         direction: 'vertical',
-        speed: 1500,
+        slidesPerView: 3,
+        centeredSlides: true,
+        loop: true,
+        spaceBetween: 30,
+        speed: 700,
+        grabCursor: true,
         autoplay: {
-            delay: 3000, // Автопрокрутка каждые 3 секунды
+            delay: 3500,
             disableOnInteraction: false,
-        }
-    })
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            0: { slidesPerView: 1.2, spaceBetween: 20 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+        },
+    });
+
+
 }
+
+// // Устанавливает размытый фон карточки равный img.src
+// function applyBlurredBgToReviewCards() {
+//   const cards = document.querySelectorAll('.reviews-swiper .review-card');
+//   cards.forEach(card => {
+//     const img = card.querySelector('img');
+//     if (!img) return;
+
+//     // Если изображение уже загружено — применим
+//     const setBg = (src) => {
+//       // ставим в ::before через style переменную (используем inline backgroundImage на элементе)
+//       card.style.setProperty('--review-bg-src', `url("${src}")`);
+//       // чтобы ::before использовал это, можно поставить background-image через атрибут style,
+//       // но псевдоэлемент не может читать inline style background-image напрямую.
+//       // поэтому устанавливаем background на сам элемент и используем filter + z-index trick:
+//       // но проще — установим style.backgroundImage для самого элемента (на z-index 0 псевдоэлемента).
+//       card.style.backgroundImage = `url("${src}")`;
+//       card.style.backgroundSize = 'cover';
+//       card.style.backgroundPosition = 'center';
+//       // и чтобы ::before мог обращаться — мы используем его background: inherit; (см. ниже)
+//     };
+
+//     if (img.complete && img.naturalWidth !== 0) {
+//       setBg(img.src);
+//     } else {
+//       img.addEventListener('load', () => setBg(img.src));
+//     }
+//   });
+// }
+
+// Дополнительно: немножко CSS-правки, чтобы ::before использовал background от элемента
+// Этот кусок добавляет правило в runtime (альтернатива — можно добавить в CSS вручную)
+(function appendReviewPseudoStyle() {
+  const css = `
+    .reviews-swiper .review-card::before { background-image: inherit; }
+  `;
+  const s = document.createElement('style');
+  s.textContent = css;
+  document.head.appendChild(s);
+})();
+
+// вызови эту функцию после создания Swiper и/или после DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+  applyBlurredBgToReviewCards();
+});
+
+// если слайды могут меняться динамически (lazy load) — вызвать applyBlurredBgToReviewCards() после обновлений
+
 
 function initReviewModal() {
     const reviewImages = document.querySelectorAll('.review-image');
