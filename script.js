@@ -273,10 +273,10 @@ function animateReviews() {
         delay: 3500,
         disableOnInteraction: false,
         },
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        },
+        // navigation: {
+        // nextEl: '.swiper-button-next',
+        // prevEl: '.swiper-button-prev',
+        // },
         breakpoints: {
         // Мобилки (0-767px) - горизонтальный слайдер
         0: { 

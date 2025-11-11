@@ -580,10 +580,10 @@ header::after {
   }
   
   /* Скрываем стрелки на маленьких экранах */
-  .swiper-button-prev,
+  /* .swiper-button-prev,
   .swiper-button-next {
     display: none;
-  }
+  } */
   
   /* Убираем градиенты по бокам на мобилках */
   .section-reviews::before,
