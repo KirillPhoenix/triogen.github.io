@@ -257,9 +257,11 @@ function animateStats() {
 // =============================================
 
 function animateReviews() {
-  const container = document.querySelector('.reviews-swiper');
-  if (!container) return;
+    const container = document.querySelector('.reviews-swiper');
+    if (!container) return;
+
     new Swiper('.reviews-swiper', {
+        // По умолчанию для десктопа - вертикальная карусель
         direction: 'vertical',
         slidesPerView: 3,
         centeredSlides: true,
@@ -268,21 +270,37 @@ function animateReviews() {
         speed: 700,
         grabCursor: true,
         autoplay: {
-            delay: 3500,
-            disableOnInteraction: false,
+        delay: 3500,
+        disableOnInteraction: false,
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
         },
         breakpoints: {
-            0: { slidesPerView: 1.2, spaceBetween: 20 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+        // Мобилки (0-767px) - горизонтальный слайдер
+        0: { 
+            direction: 'horizontal',
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+            centeredSlides: true
+        },
+        // Планшеты (768-1023px) - горизонтальный слайдер
+        768: { 
+            direction: 'horizontal',
+            slidesPerView: 2,
+            spaceBetween: 25,
+            centeredSlides: false
+        },
+        // Десктоп (1024px+) - вертикальная карусель
+        1024: { 
+            direction: 'vertical',
+            slidesPerView: 3,
+            spaceBetween: 30,
+            centeredSlides: true
+        }
         },
     });
-
-
 }
 
 // // Устанавливает размытый фон карточки равный img.src

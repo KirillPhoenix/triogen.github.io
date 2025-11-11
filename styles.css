@@ -429,8 +429,8 @@ header::after {
 .section-reviews {
   position: relative;
   overflow: hidden;
-  min-height: 100px; /* не даём схлопнуться */
-  isolation: isolate; /* чтобы z-index не пересекался с другими секциями */
+  min-height: 100px;
+  isolation: isolate;
 }
 
 .section-portfolio::before,
@@ -446,9 +446,7 @@ header::after {
   width: 15%;
   pointer-events: none;
   z-index: 1;
-  background: linear-gradient(to right, rgb(8, 8, 181) 0%, transparent 100%);
 }
-
 
 /* Левый край */
 .section-portfolio::before,
@@ -458,7 +456,7 @@ header::after {
   background: linear-gradient(to right, rgba(8, 8, 181, 0.4) 0%, transparent 100%);
 }
 
-/* Правый край (зеркальный) */
+/* Правый край */
 .section-portfolio::after,
 .section-about::after,
 .section-reviews::after {
@@ -466,9 +464,11 @@ header::after {
   background: linear-gradient(to left, rgba(8, 8, 181, 0.4) 0%, transparent 100%);
 }
 
+/* Десктоп - вертикальная карусель */
 .reviews-swiper {
   perspective: 100px;
-  overflow: hidden; /* <-- не даём карточкам выходить за контейнер */
+  overflow: hidden;
+  height: 80vh;
 }
 
 .reviews-swiper .swiper-slide {
@@ -484,7 +484,9 @@ header::after {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background: #fff; /* фон под скрин */
+  width: 40vw;
+  height: 20vh;
+  background: #fff;
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.4s ease;
@@ -514,13 +516,13 @@ header::after {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* картинка полностью заполняет рамку */
+  object-fit: fill;
   border-radius: inherit;
   transition: transform 0.4s ease;
   z-index: 1;
 }
 
-/* Центральный слайд */
+/* Десктоп - вертикальные стили */
 .reviews-swiper .swiper-slide-active .review-card {
   transform: scale(1.1);
   opacity: 1;
@@ -537,33 +539,80 @@ header::after {
     inset 0 0 25px rgba(93, 91, 255, 0.5);
 }
 
-
-/* Боковые карточки */
+/* Боковые карточки (вертикальные) */
 .reviews-swiper .swiper-slide-prev .review-card,
 .reviews-swiper .swiper-slide-next .review-card {
-  transform: scale(0.6) translateZ(-150px) rotateY(8deg);
+  transform: translateZ(-150px) rotateY(8deg);
   opacity: 0.7;
 }
 
 .reviews-swiper .swiper-slide-prev .review-card {
-  transform: scale(0.6) translateZ(-150px) rotateY(-8deg);
+  transform: translateZ(-150px) rotateY(-8deg);
 }
 
-.reviews-swiper .swiper-slide-active:hover .review-card {
-  transform: scale(1.2);
+.reviews-swiper .swiper-slide-active .review-card {
+  transform: scale(1.3);
 }
 
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-  .reviews-swiper .swiper-slide-active .review-card {
-    transform: scale(1.2);
+/* Мобильная адаптация - горизонтальный слайдер */
+@media (max-width: 1023px) {
+  .reviews-swiper {
+    height: 300px; /* Фиксированная высота для горизонтального слайдера */
+    perspective: none; /* Убираем 3D-эффекты */
   }
+  
+  .review-card {
+    width: 80vw; /* Шире для мобилок */
+    height: 200px; /* Фиксированная высота */
+    margin: 0 auto; /* Центрируем */
+  }
+  
+  /* Горизонтальные трансформации */
+  .reviews-swiper .swiper-slide-active .review-card {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  
+  .reviews-swiper .swiper-slide-prev .review-card,
+  .reviews-swiper .swiper-slide-next .review-card {
+    transform: scale(0.85);
+    opacity: 0.6;
+  }
+  
+  /* Скрываем стрелки на маленьких экранах */
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+  
+  /* Убираем градиенты по бокам на мобилках */
+  .section-reviews::before,
+  .section-reviews::after {
+    display: none;
+  }
+}
+
+/* Дополнительные стили для планшетов */
+@media (max-width: 767px) {
+  .review-card {
+    width: 85vw;
+    height: 180px;
+  }
+  
+  .reviews-swiper {
+    height: 250px;
+  }
+  
+  .reviews-swiper .swiper-slide-active .review-card {
+    transform: scale(1.05);
+  }
+  
   .reviews-swiper .swiper-slide-prev .review-card,
   .reviews-swiper .swiper-slide-next .review-card {
     transform: scale(0.8);
+    opacity: 0.5;
   }
 }
-
 
 
 .section-stats {
