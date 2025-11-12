@@ -171,8 +171,10 @@ function animateServiceCards() {
         cards.forEach((card, index) => {
             const rect = card.getBoundingClientRect();
             if (rect.top < window.innerHeight * 0.8) {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
+                setTimeout(()=>{
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                },index*250)
             }
         });
     };
@@ -180,6 +182,81 @@ function animateServiceCards() {
     window.addEventListener('scroll', checkVisibility);
     checkVisibility(); // Проверить при загрузке
 }
+
+function animatePortfolioItems() {
+    const items = document.querySelectorAll('.portfolio-item');
+    if (!items.length) return;
+
+    items.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+    });
+
+    const checkVisibility = () => {
+        items.forEach((item, index) => {
+            const rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) {
+                setTimeout(()=>{
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index*250)
+            }
+        });
+    };
+
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility();
+}
+
+function animateBenefits() {
+    const items = document.querySelectorAll('.benefit-card');
+    if (!items.length) return;
+
+    items.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+    });
+
+    const checkVisibility = () => {
+        items.forEach((item, index) => {
+            const rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) {
+                setTimeout(()=>{
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index*250)
+            }
+        });
+    };
+
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility();
+}
+
+function animateStatBoxes() {
+    const items = document.querySelectorAll('.stat-box');
+    if (!items.length) return;
+
+    items.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+    });
+
+    const checkVisibility = () => {
+        items.forEach(item => {
+            const rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility();
+}
+
+
 
 // =============================================
 // 3. Анимация статистики (круговые диаграммы)
@@ -378,9 +455,14 @@ function initReviewModal() {
     });
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
     initHeaderParticles();    // Частицы в шапке
     animateServiceCards();    // Карточки услуг
+    animateServiceCards();
+    animatePortfolioItems();
+    animateBenefits();
+    //animateStatBoxes();
     animateStats();           // Круговые диаграммы
     animateReviews();
     initReviewModal();
