@@ -174,7 +174,7 @@ function animateServiceCards() {
                 setTimeout(()=>{
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
-                },index*250)
+                },index*200)
             }
         });
     };
@@ -199,7 +199,7 @@ function animatePortfolioItems() {
                 setTimeout(()=>{
                     item.style.opacity = '1';
                     item.style.transform = 'translateY(0)';
-                }, index*250)
+                }, index*200)
             }
         });
     };
@@ -224,7 +224,7 @@ function animateBenefits() {
                 setTimeout(()=>{
                     item.style.opacity = '1';
                     item.style.transform = 'translateY(0)';
-                }, index*250)
+                }, index*200)
             }
         });
     };
