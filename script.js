@@ -174,7 +174,7 @@ function animateServiceCards() {
                 setTimeout(()=>{
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
-                },index*200)
+                },index*150)
             }
         });
     };
@@ -199,7 +199,7 @@ function animatePortfolioItems() {
                 setTimeout(()=>{
                     item.style.opacity = '1';
                     item.style.transform = 'translateY(0)';
-                }, index*200)
+                }, index*150)
             }
         });
     };
@@ -224,7 +224,7 @@ function animateBenefits() {
                 setTimeout(()=>{
                     item.style.opacity = '1';
                     item.style.transform = 'translateY(0)';
-                }, index*200)
+                }, index*150)
             }
         });
     };
@@ -380,35 +380,6 @@ function animateReviews() {
     });
 }
 
-// // Устанавливает размытый фон карточки равный img.src
-// function applyBlurredBgToReviewCards() {
-//   const cards = document.querySelectorAll('.reviews-swiper .review-card');
-//   cards.forEach(card => {
-//     const img = card.querySelector('img');
-//     if (!img) return;
-
-//     // Если изображение уже загружено — применим
-//     const setBg = (src) => {
-//       // ставим в ::before через style переменную (используем inline backgroundImage на элементе)
-//       card.style.setProperty('--review-bg-src', `url("${src}")`);
-//       // чтобы ::before использовал это, можно поставить background-image через атрибут style,
-//       // но псевдоэлемент не может читать inline style background-image напрямую.
-//       // поэтому устанавливаем background на сам элемент и используем filter + z-index trick:
-//       // но проще — установим style.backgroundImage для самого элемента (на z-index 0 псевдоэлемента).
-//       card.style.backgroundImage = `url("${src}")`;
-//       card.style.backgroundSize = 'cover';
-//       card.style.backgroundPosition = 'center';
-//       // и чтобы ::before мог обращаться — мы используем его background: inherit; (см. ниже)
-//     };
-
-//     if (img.complete && img.naturalWidth !== 0) {
-//       setBg(img.src);
-//     } else {
-//       img.addEventListener('load', () => setBg(img.src));
-//     }
-//   });
-// }
-
 // Дополнительно: немножко CSS-правки, чтобы ::before использовал background от элемента
 // Этот кусок добавляет правило в runtime (альтернатива — можно добавить в CSS вручную)
 (function appendReviewPseudoStyle() {
@@ -462,7 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateServiceCards();
     animatePortfolioItems();
     animateBenefits();
-    //animateStatBoxes();
+    animateStatBoxes();
     animateStats();           // Круговые диаграммы
     animateReviews();
     initReviewModal();
