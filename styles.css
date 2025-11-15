@@ -93,13 +93,13 @@ header::after {
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
 
-.intro .ava img {
+/* .intro .ava img {
   width: 300px;
   height: 300px;
   border-radius: 50%;
   border: 3px solid var(--accent2);
   box-shadow: 0 0 25px var(--accent2);
-}
+} */
 
 /* Canvas Particles */
 #magneticCanvas {
