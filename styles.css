@@ -31,6 +31,8 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   user-select: none;
+  overflow-y: scroll; /* или overflow-y: overlay в некоторых случаях */
+  scroll-behavior: auto !important; /* ← отключаем плавный скролл принудительно */
 }
 
 /* ============================================= */
@@ -42,7 +44,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  height: 50vh;
   min-height: 400px;
   background: linear-gradient(135deg, #090a10 0%, #13152a 100%);
   overflow: hidden;
@@ -86,8 +88,13 @@ header::after {
   transform: scale(1.03);
 }
 
+.intro h2 {
+    margin-top: 5vh;
+}
+
 .intro p {
   width: 95vw;
+  text-align: center;
   font-size: 1.2rem;
   color: #bbb;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
@@ -102,6 +109,66 @@ header::after {
 } */
 
 /* Canvas Particles */
+
+.header-cta {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  z-index: 10;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #00ffe0;
+}
+
+.phone {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #00ffe0;
+  text-shadow: 0 0 10px #00ffe0;
+}
+
+.messengers {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+.messengers a {
+  font-size: 3.5rem;
+  color: #5d5bff;
+  transition: all 0.3s;
+}
+
+.messengers a:hover {
+  color: #00ffe0;
+  transform: scale(1.2);
+}
+
+.call-now {
+  font-size: 1.1rem;
+  background: linear-gradient(90deg, #5d5bff, #00ffe0);
+  padding: 8px 16px;
+  border-radius: 30px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  max-width: 200px;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .header-cta {
+    top: 20px;
+    right: 20px;
+  }
+  .phone { font-size: 1.8rem; }
+  .messengers a { font-size: 2rem; }
+  .call-now { font-size: 0.9rem; padding: 6px 12px; }
+}
+
 #magneticCanvas {
   position: absolute;
   inset: 0;
@@ -377,6 +444,128 @@ footer a:focus {
 .btn-more:hover {
   box-shadow: 0 0 35px var(--accent2);
 }
+
+.hidden-more {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.hidden-more.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.portfolio-item {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 255, 224, 0.25);
+}
+
+/* Модальное окно */
+.portfolio-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 12, 16, 0.92);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    padding: 20px;
+}
+
+.neon-modal {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    background: rgba(18, 19, 26, 0.92);
+    border: 2px solid rgba(93, 91, 255, 0.35);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0, 255, 224, 0.25);
+    color: #e0e0e0;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 42px;
+    color: #00ffe0;
+    cursor: pointer;
+    z-index: 10;
+    text-shadow: 0 0 10px #00ffe0;
+}
+
+.modal-image img {
+    width: 100%;
+    max-height: 55vh;
+    object-fit: contain;
+    background: #000;
+}
+
+.modal-info {
+    padding: 25px 30px;
+    text-align: center;
+}
+
+.modal-description {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: #bbb;
+    margin: 15px 0 30px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-cta {
+    display: inline-block;
+    padding: 14px 36px;
+    background: linear-gradient(90deg, #5d5bff, #00ffe0);
+    color: #000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.modal-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 255, 224, 0.5);
+}
+
+/* Блокируем скролл без прыжков */
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    /* Сохраняем текущую прокрутку */
+    top: var(--scroll-y, 0);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .neon-modal {
+        flex-direction: column;
+    }
+    .modal-image img {
+        max-height: 45vh;
+    }
+}
+
+/* Для плавного появления по очереди */
+#portfolio-gallery .hidden-more:nth-child(4) { transition-delay: 0.1s; }
+#portfolio-gallery .hidden-more:nth-child(5) { transition-delay: 0.2s; }
+/* и т.д. */
 
 /* ============================================= */
 /* Section: Benefits */
@@ -696,6 +885,29 @@ footer .icon-container i:hover {
   color: var(--accent1);
   text-shadow: 0 0 15px var(--accent1);
   transform: scale(1.1);
+}
+
+.footer-phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 10px;
+
+  font-size: 1.2rem;
+  color: #bbb;
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+.footer-phone:hover {
+  color: var(--accent1);
+}
+
+.footer-phone i {
+  font-size: 1.1em;
 }
 
 /* ============================================= */

@@ -438,3 +438,150 @@ document.addEventListener('DOMContentLoaded', () => {
     animateReviews();
     initReviewModal();
 });
+
+// Тот же HTML, но кнопка будет переключать
+document.getElementById('show-more-btn').addEventListener('click', function() {
+    const hiddenItems = document.querySelectorAll('.hidden-more');
+    const btn = this;
+    
+    if (btn.classList.contains('active')) {
+        hiddenItems.forEach(item => item.classList.remove('visible'));
+        btn.textContent = 'Показать все проекты';
+        btn.classList.remove('active');
+    } else {
+        hiddenItems.forEach(item => item.classList.add('visible'));
+        btn.textContent = 'Скрыть';
+        btn.classList.add('active');
+    }
+});
+
+// Данные проектов — удобно редактировать
+const projectsData = {
+    "sauna": {
+        title: "Подключение электропечи в сауне",
+        img: "media/portfolio/portfolio-1.jpg", // или можно отдельную большую версию
+        desc: "Подключение мощной электропечи 12 кВт. Проложена отдельная линия 5×6 мм², установлен автомат 50А, УЗО, диф.защита. Использованы теплостойкие кабели и герметичные соединения — всё для безопасной работы в условиях высокой влажности и температуры."
+    },
+    "gates": {
+        title: "Установка автоматических ворот",
+        img: "media/portfolio/portfolio-2.jpg",
+        desc: "Монтаж и подключение привода DoorHan на откатные ворота 5,2 м. Подключение к трёхфазной сети, установка концевых выключателей, фотоэлементов безопасности, блока управления. Всё аккуратно спрятано в щитке."
+    },
+    "house-light": {
+        title: "Монтаж освещения в частном доме",
+        img: "media/portfolio/portfolio-3.jpg",
+        desc: "Полный монтаж системы освещения: 28 точек света, диммируемые LED-светильники, проходные выключатели, умное управление. Экономия энергии до 40% + красивый световой дизайн."
+    },
+    "stabilizer": {
+        title: "Установка стабилизаторов напряжения",
+        img: "media/portfolio/portfolio-4.jpg",
+        desc: "Установка двух мощных стабилизаторов 15 кВА каждый. Защита всей квартиры от скачков напряжения, перегрузок и импульсных помех. Отдельный ввод и грамотное заземление."
+    },
+    "panel": {
+        title: "Сборка щитка в квартире",
+        img: "media/portfolio/portfolio-5.jpg",
+        desc: "Сборка современного квартирного щитка на 48 модулей. Автоматы ABB, УЗО, реле напряжения, счётчик, шины N-PE. Всё промаркировано, аккуратная укладка проводов, запас по мощности."
+    },
+    "teplo": {
+        title: "Тепловизионное обследование",
+        img: "media/portfolio/portfolio-6.jpg",
+        desc: "1. Проверка стен, окон, дверей дома на возможные утечки тепла. 2. Проверка домашней электрики на локальный перегрев.3. Проверка правильности заполнения систем отопления.4. Инфракрасная схема монтажа тëплых полов."
+    }
+};
+
+const modal = document.getElementById('portfolioModal');
+const modalImg = document.getElementById('modalProjectImg');
+const modalTitle = document.getElementById('modalProjectTitle');
+const modalDesc = document.getElementById('modalProjectDesc');
+
+document.querySelectorAll('.portfolio-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const projectKey = item.dataset.project;
+        const project = projectsData[projectKey];
+        
+        if (project) {
+            modalImg.src = project.img;
+            modalImg.alt = project.title;
+            modalTitle.textContent = project.title;
+            modalDesc.textContent = project.desc;
+            
+            modal.style.display = 'flex';
+        }
+    });
+});
+
+// Закрытие модалки
+document.querySelector('.modal-close').addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+// Функции блокировки/разблокировки
+function lockScroll() {
+    // Точная позиция скролла
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    
+    // Сохраняем в data-атрибут (более надёжно, чем CSS var в некоторых браузерах)
+    document.body.dataset.scrollY = scrollY;
+    
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.classList.add('modal-open');
+}
+
+// Разблокируем и возвращаем позицию
+function unlockScroll() {
+    const body = document.body;
+    const scrollY = parseInt(body.dataset.scrollY || '0');
+    
+    body.classList.remove('modal-open');
+    body.style.position = '';
+    body.style.top = '';
+    body.style.width = '';
+    
+    // Возвращаем скролл **сразу после** снятия fixed
+    window.scrollTo({
+        top: scrollY,
+        behavior: 'instant'  // ← мгновенно, без анимации
+    });
+    
+    // Чистим, чтобы не мусорить
+    delete body.dataset.scrollY;
+}
+
+// Открытие
+document.querySelectorAll('.portfolio-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const projectKey = item.dataset.project;
+        const project = projectsData[projectKey];
+        
+        if (project) {
+            modalImg.src = project.img;
+            modalImg.alt = project.title;
+            modalTitle.textContent = project.title;
+            modalDesc.textContent = project.desc;
+            
+            modal.style.display = 'flex';
+            lockScroll();  // ← здесь блокируем
+        }
+    });
+});
+
+// Закрытие
+document.querySelector('.modal-close').addEventListener('click', () => {
+    modal.style.display = 'none';
+    unlockScroll();             // ← РАЗБЛОКИРУЕМ
+});
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+        unlockScroll();         // ← РАЗБЛОКИРУЕМ
+    }
+});

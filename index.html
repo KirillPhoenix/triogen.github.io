@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="https://use.fontawesome.com/releases/v6.5.2/css/all.css", rel="stylesheet"> <!-- Если иконки не работают проверить актуальность версии -->
+    <link href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" rel="stylesheet"> <!-- Если иконки не работают проверить актуальность версии -->
     
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -26,16 +26,22 @@
         <div class="intro">
             <div class="text">
                 <h1>TRIOGEN ELEKTRIKA</h1>
-                <p>Электрика — это не только про розетки и выключатели. Это про уверенность в том, что ваш дом — это крепость,
-                    где нет места риску. Я делаю не просто "чтобы работало", а чтобы стало безопасно для вас и ваших близких на долгие годы.
-                    Мы часто думаем об электрике только когда гаснет свет. Но на самом деле, она работает круглосуточно, обеспечивая комфорт и, что важнее, безопасность.
-                    Моя задача — сделать так, чтобы вы об этом не беспокоились. Качественные материалы, аккуратный монтаж и внимание к деталям — мои главные принципы.</p>
-                <p>Зажжённая лампочка — это видимая часть работы. Невидимая — это надёжные соединения, правильное заземление и защита от коротких замыканий.
-                    Я отвечаю за обе части. Доверяйте электрику профессионалу, который думает о вашей безопасности, даже когда всё в порядке и идеально.</p>
+                <h2>Электрик, которому можно доверять</h2>
+                <p>За 20 лет я сделал сотни объектов так, чтобы потом не возвращаться по гарантии.</p>
+                <p>Быстрый выезд, честная смета сразу, качественные материалы и 3 года гарантии на всё.</p>
+                <p>Если нужно безопасно, красиво и без головной боли — звоните.</p>
             </div>
             <!-- <div class="ava">
                 <img src="media/header/avatar.png" alt="Аватар электрика Triogen" loading="lazy">
             </div> -->
+        </div>
+        <div class="hero-cta" style="position: absolute; top: 30px; right: 30px; z-index: 10; text-align: right;">
+        <a href="tel:+79277327820" class="phone">+7 (927) 732-78-20</a>
+        <div class="messengers">
+            <a href="https://wa.me/79277327820" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/triogen_elektrika" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+        <!-- <div class="btn-primary">Вызвать электрика</div> -->
         </div>
     </header>
 
@@ -186,32 +192,71 @@
 
     <section class="section-portfolio">
         <h2>Мои работы</h2>
-        <div class="portfolio-gallery">
-          <div class="portfolio-item">
-            <img src="media/portfolio/portfolio-1.jpg" alt="Ремонт проводки в квартире" loading="lazy">
-            <div class="portfolio-overlay">
-              <h3>Квартира на Ленина, 15</h3>
-              <p>Полная замена проводки с монтажом 25 розеток</p>
+        
+        <div class="portfolio-gallery" id="portfolio-gallery">
+            <!-- Видимые сразу (3 штуки) -->
+            <div class="portfolio-item" data-project="sauna">
+                <img src="media/portfolio/portfolio-1.jpg" alt="Подключение электропечи в сауне" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Подключение электропечи в сауне</h3>
+                </div>
             </div>
-          </div>
-          
-          <div class="portfolio-item">
-            <img src="media/portfolio/portfolio-2.jpg" alt="Установка люстры" loading="lazy">
-            <div class="portfolio-overlay">
-              <h3>Офис на Гагарина, 42</h3>
-              <p>Монтаж системы освещения (24 светильника)</p>
+            
+            <div class="portfolio-item" data-project="gates">
+                <img src="media/portfolio/portfolio-2.jpg" alt="Установка автоматических ворот" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Установка автоматических ворот</h3>
+                </div>
             </div>
-          </div>
-          
-          <div class="portfolio-item">
-            <img src="media/portfolio/portfolio-3.jpg" alt="Электрощит" loading="lazy">
-            <div class="portfolio-overlay">
-              <h3>Частный дом в Green Village</h3>
-              <p>Сборка и установка электрощита на 36 модулей</p>
+            
+            <div class="portfolio-item" data-project="house-light">
+                <img src="media/portfolio/portfolio-3.jpg" alt="Монтаж освещения в частном доме" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Монтаж освещения в частном доме</h3>
+                </div>
             </div>
-          </div>
+
+            <div class="portfolio-item" data-project="stabilizer">
+                <img src="media/portfolio/portfolio-4.jpg" alt="Установка стабилизаторов напряжения" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Установка стабилизаторов напряжения</h3>
+                </div>
+            </div>
+            
+            <div class="portfolio-item" data-project="panel">
+                <img src="media/portfolio/portfolio-5.jpg" alt="Сборка щитка в квартире" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Сборка щитка в квартире</h3>
+                </div>
+            </div>
+            
+            <div class="portfolio-item" data-project="teplo">
+                <img src="media/portfolio/portfolio-6.jpg" alt="Тепловизионное обследование" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Тепловизионное обследование</h3>
+                </div>
+            </div>
+            <!-- можно добавить ещё сколько угодно -->
         </div>
-        <button class="btn-more">Показать все проекты</button>
+
+        <!-- Модальное окно (одно на всю галерею) -->
+        <div class="portfolio-modal" id="portfolioModal">
+            <div class="modal-content neon-modal">
+                <span class="modal-close">×</span>
+                
+                <div class="modal-image">
+                    <img id="modalProjectImg" src="" alt="Проект">
+                </div>
+                
+                <div class="modal-info">
+                    <h3 id="modalProjectTitle"></h3>
+                    <div class="modal-description" id="modalProjectDesc"></div>
+                    <a href="tel:+79277327820" class="modal-cta">Заказать такую же работу</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-more" id="show-more-btn">Показать все проекты</button>
     </section>
 
     <!-- <div class="section-divider"></div> -->
@@ -334,17 +379,24 @@
     <footer>
         <p>Контактная информация ©2025</p>
         <div class="icon-container">
-            <a href="https://t.me/triogen_elektrika">
+            <a href="https://t.me/triogen_elektrika" target="_blank">
                 <i class="fa-brands fa-telegram fa-3x" style="color: #ffffff;"></i>
             </a>
-            <a href="https://vk.com/samrusbiz">
-                <i class="fa-brands fa-vk fa-3x" style="color: #ffffff;"></i>
+            <a href="https://vk.com/triogen_elektrika" target="_blank">
+                <i class="fa-brands fa-vk fa-3x" style="color: #ffffff;"></i> 
             </a>
+            <a href="https://wa.me/79277327820" target="_blank">
+                <i class="fab fa-whatsapp" style="color: #ffffff;"></i>
+            </a>
+
             <div class="copy-link" onclick="copyToClipboard('triogen@mail.ru')">
                 <i class="fa-solid fa-at fa-3x"></i>
             </div>
         </div>
-        <i class="fa-solid fa-phone"> +7 (927) 732-78-20</i>
+        <a href="tel:+79277327820" class="footer-phone">
+            <i class="fa-solid fa-phone"></i>
+            <span>+7 (927) 732-78-20</span>
+        </a>
         <script>
             function copyToClipboard(text) {
                 navigator.clipboard.writeText(text).then(() => {
